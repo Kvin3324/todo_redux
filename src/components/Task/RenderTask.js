@@ -6,12 +6,11 @@ function RenderTask() {
   const [data, setData] = useState(store.getState());
   store.subscribe(() => setData(store.getState()));
 
-  console.log(data);
-
-  function completedTask() {
-    taskCheck.current.classList.add("task--completed");
+  function completedTask(e) {
+    e.target.parentNode.classList.add("task--completed");
   }
 
+  console.log(data);
   return(
     <React.Fragment>
       {
@@ -19,7 +18,7 @@ function RenderTask() {
           return data.map((task, index) => {
             return(
               <div className="task" key={index} ref={taskCheck}>
-                <input type="checkbox" className="mr-3 mt-2" onClick={() => completedTask() } />
+                <input type="checkbox" className="mr-3 mt-2" onClick={(e) => completedTask(e) } />
                 <p>{task.task}</p>
               </div>
               )
