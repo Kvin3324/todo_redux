@@ -8,8 +8,6 @@ function TodoList() {
 
   store.subscribe(() => setData(store.getState()));
 
-  console.log(data);
-
   return(
     <React.Fragment>
       <div className="todo--input">
