@@ -1,14 +1,12 @@
 import React from "react";
+import store from "../../redux/store";
 
 function Footer() {
   return(
-    <React.Fragment>
-      <div className="filter--task">
-        <button className="mr-4">All</button>
-        <button className="mr-4">Active</button>
-        <button>Completed</button>
-      </div>
-    </React.Fragment>
+    <footer className="filter--task">
+      <button className="mr-4" onClick={(e) => store.dispatch({type: "CHANGE_VISIBILITY", status: e.target.textContent})}>Active</button>
+      <button onClick={(e) => store.dispatch({type: "CHANGE_VISIBILITY", status: e.target.textContent})}>Completed</button>
+    </footer>
   )
 }
 
