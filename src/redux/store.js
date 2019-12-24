@@ -1,17 +1,31 @@
 import {createStore} from "redux";
 
-let tasks = [];
+const tasks = {
+  visibility: "Active",
+  tasks: []
+};
 
 function allTasks(state = tasks, action) {
+  const newState = {...state};
+
   if (action.type === "ADD_TASK") {
-    const newState = [...state];
-    const task = {
+    newState.tasks.push({
       task: action.task.current.value,
-      status: "active"
-    }
-    newState.push(task);
+      status: "Active"
+    });
     return newState;
   }
+
+  if (action.type === "TASK_COMPLETED") {
+    newState.tasks[action.taskIndex].status = "Completed";
+    return newState;
+  }
+
+  if (action.type === "CHANGE_VISIBILITY") {
+    newState.visibility = action.status;
+    return newState;
+  }
+
   return state;
 }
 
