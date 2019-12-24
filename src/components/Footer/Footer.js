@@ -4,9 +4,9 @@ function Footer() {
   return(
     <React.Fragment>
       <div className="filter--task">
-        <a className="mr-4" style={{cursor: "pointer"}}>All</a>
-        <a className="mr-4" style={{cursor: "pointer"}}>Active</a>
-        <a style={{cursor: "pointer"}}>Completed</a>
+        <button className="mr-4">All</button>
+        <button className="mr-4">Active</button>
+        <button>Completed</button>
       </div>
     </React.Fragment>
   )
